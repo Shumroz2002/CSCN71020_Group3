@@ -6,29 +6,50 @@
 void get_triangle_input() {
     
     double side1, side2, side3;
-            
-    // FISRT SIDE USER INPUT
-    printf("Please Enter The First Side In CentiMetres\n");
-        // First Input Validation
-    int ScanReturn1 =  scanf("%lf", &side1);
-            // Validate First Input
-    if (ScanReturn1 != 1 ) {
+     
+	// FIRST SIDE USER INPUT
+    do {
+        printf("Please Enter the first side: ");
+        ScanReturn1 = scanf("%lf", &side1);
 
-        printf("Please Enter A Valid Numerical Value\n");
-        EXIT_FAILURE;
+        while (getchar() != '\n');  // CLEARING INPUT BUFFER
 
-        }
+    } 
+    
+    while (ScanReturn1 != 1 || side1 <= 0);
 
-    // Second Side user input
-    printf("Please Enter The Second Side In CentiMetres\n");
-        // Second Input Validation
-   int ScanReturn2 = scanf("%lf", &side2);
+    // SECOND SIDE USER INPUT
+    do {
+        printf("Please Enter the second side: ");
+        ScanReturn2 = scanf("%lf", &side2);
 
+		while (getchar() != '\n');  // CLEARING INPUT BUFFER
 
-    // Third Side User input
-    printf("Please Enter The Third Side In CentiMetres\n");
-        // Third Side Validation
-    int ScanReturn3 = scanf("%lf", &side3);
+    } 
+    while (ScanReturn2 != 1 || side2 <= 0);
+
+    // THIRD SIDE USER INPUT
+    do {
+        printf("Please Enter the third side: ");
+        ScanReturn3 = scanf("%lf", &side3);
+
+		while (getchar() != '\n');  //  CLEARING INPUT BUFFER
+
+    } 
+    while (ScanReturn3 != 1 || side3 <= 0);
+
+    // Triangle Validity Check
+	if (side1 + side2 <= side3 || side1 + side3 <= side2 || side2 + side3 <= side1) { // INVALID TRIANGLE VALIDITY CHECK
+
+        printf("Invalid triangle sides. Please enter again.\n");
+
+		get_triangle_input(); // Restart THE FUNCTION
+
+        return;
+    }
+
+	printf("Valid Triangle Entered: %.2f, %.2f, %.2f\n", side1, side2, side3); // PRINTING VALID TRIANGLE SIDES
+}
 
 }
 
