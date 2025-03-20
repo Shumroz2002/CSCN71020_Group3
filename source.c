@@ -4,7 +4,9 @@
 #include <stdlib.h>
 
 void get_triangle_input() {
-    
+<<<<<<< HEAD
+=======
+// VARIABLE DECLARATION FOR USER INPUT
     double side1, side2, side3;
      
 	// FIRST SIDE USER INPUT
@@ -50,6 +52,7 @@ void get_triangle_input() {
 
 	printf("Valid Triangle Entered: %.2f, %.2f, %.2f\n", side1, side2, side3); // PRINTING VALID TRIANGLE SIDES
 }
+>>>>>>> dc5b7befa51fd18f71ff3a9221f7a55fd073482f
 
 }
 
